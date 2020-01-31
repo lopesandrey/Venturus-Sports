@@ -1,0 +1,29 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-radio-button {
+  margin: 10px 25px 10px 0;
+}
+
+mat-checkbox {
+  margin-right: 13px;
+}
+
+hr {
+  border-top: 2px solid rgba(0,0,0,.1);
+}
+
+.create {
+  margin: 50px 0;
+
+  &__title {
+    font-weight: bold;
+    display: flex;
+    width: 100%;
+  }
+
+  &__checks {
+    margin: 20px 0;
+  }
+}

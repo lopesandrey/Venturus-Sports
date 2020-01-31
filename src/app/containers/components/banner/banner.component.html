@@ -1,0 +1,15 @@
+<div class="banner">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-flex">
+        <div class="banner__item" *ngFor="let item of sportInfos">
+          <fa-icon [icon]="item.icon" class="banner__item__icon"></fa-icon>
+          <span class="banner__item__text">
+            <p>{{item.description}}</p>
+            <p>{{item.info}}</p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

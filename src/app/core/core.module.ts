@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserSportsService } from './services/user-sports.service';
+import { ApiService } from './services/api-service.service';
 
 @NgModule({
   declarations: [],
@@ -9,6 +10,7 @@ import { UserSportsService } from './services/user-sports.service';
   ],
   providers: [
     UserSportsService,
+    ApiService,
   ]
 })
 export class CoreModule { }

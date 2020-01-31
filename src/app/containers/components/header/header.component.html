@@ -1,0 +1,23 @@
+<div class="header">
+  <nav class="navbar navbar-light bg-light header__navbar">
+    <div class="header__navbar__icon">
+      <fa-icon [icon]="faBasketballBall"></fa-icon>
+    </div>
+    <a class="navbar-brand header__navbar__brand" href="#">Venturus Sports</a>
+    <div class="header__navbar__menu">
+      <button class="header__navbar__menu__btn" mat-button [matMenuTriggerFor]="menu">
+        <span class="header__navbar__menu__btn__initials">JB</span>
+        Jason Bourne
+        <fa-icon [icon]="faChevronDown"></fa-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="users/new">Registration</button>
+        <button mat-menu-item>Friends List</button>
+        <button mat-menu-item>Saved Items</button>
+        <button mat-menu-item>User Preferences</button>
+        <div class="dropdown-divider"></div>
+        <button mat-menu-item>Log out</button>
+      </mat-menu>
+    </div>
+  </nav>
+</div>

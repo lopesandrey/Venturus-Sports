@@ -1,0 +1,39 @@
+@import '../../../scss/variables';
+
+.header {
+
+  &__navbar {
+    justify-content: flex-start;
+
+    &__icon {
+      font-size: 30pt;
+      color: $primary-color;
+    }
+
+    &__brand {
+      align-self: center;
+      margin: 0 20px;
+      font-weight: bold;
+    }
+
+    &__menu {
+      margin-left: auto;
+
+      &__btn {
+        padding: 5px;
+
+        fa-icon {
+          margin-left: 10px;
+        }
+
+        &__initials {
+          border: 1px solid #000000;
+          padding: 4px ;
+          margin-right: 10px;
+          font-size: 15pt;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

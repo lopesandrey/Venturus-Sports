@@ -1,3 +1,55 @@
-<p>
-  list works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="list__search">
+        <span class="list__search__title">Users</span>
+        <span class="list__search__divider"></span>
+        <div>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+              <mat-label>Filter table by name</mat-label>
+              <fa-icon matPrefix [icon]="faSearch"></fa-icon>
+              <input matInput
+                     type="text"
+                     formControlName="name"
+                     (keyup.enter)="onSubmit()"
+              />
+              <mat-hint>
+                <a (click)="clearFilter()">Clear filter.</a>
+              </mat-hint>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3 mb-3">
+    <div class="col">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef> Username </th>
+          <td mat-cell *matCellDef="let row"> {{row.username}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef> City </th>
+          <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.address.city}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>

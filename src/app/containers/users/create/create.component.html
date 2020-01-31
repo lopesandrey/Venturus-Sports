@@ -1,3 +1,54 @@
-<p>
-  create works!
-</p>
+<div class="container">
+<hr />
+  <form class="create">
+    <div class="row mt-3">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput
+                 type="text"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput
+                 type="text"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput
+                 type="text"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>City</mat-label>
+          <input matInput
+                 type="text"
+          />
+        </mat-form-field>
+        <span class="create__title">
+          Ride in group?
+        </span>
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1">Always</mat-radio-button>
+          <mat-radio-button value="2">Sometimes</mat-radio-button>
+          <mat-radio-button value="3">Never</mat-radio-button>
+        </mat-radio-group>
+
+        <section class="create__checks">
+          <mat-checkbox>Sun</mat-checkbox>
+          <mat-checkbox>Mon</mat-checkbox>
+          <mat-checkbox>Tue</mat-checkbox>
+          <mat-checkbox>Wed</mat-checkbox>
+          <mat-checkbox>Thu</mat-checkbox>
+          <mat-checkbox>Fri</mat-checkbox>
+          <mat-checkbox>Sat</mat-checkbox>
+        </section>
+      </div>
+    </div>
+  </form>
+
+</div>

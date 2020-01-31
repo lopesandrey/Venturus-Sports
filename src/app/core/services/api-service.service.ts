@@ -3,9 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
 
-let _router: Router;
 
 @Injectable()
 export class ApiService {
@@ -13,10 +11,6 @@ export class ApiService {
   constructor(
     private http: HttpClient,
   ) { }
-
-  public setRouter(router: Router): void {
-    _router = router;
-  }
 
   public get(path: string, params: any = null): Observable<any> {
     return this.http.get(`${environment.apiUrl}${path}`, { params })
