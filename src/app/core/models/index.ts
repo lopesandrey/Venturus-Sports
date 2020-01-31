@@ -3,3 +3,5 @@ export * from './company.model';
 export * from './geo.model';
 export * from './user.model';
 export * from './photo.model';
+export * from './posts.model';
+export * from './albums.model';

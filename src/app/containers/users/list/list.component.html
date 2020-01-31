@@ -47,6 +47,21 @@
           <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.address.city}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="posts">
+          <th mat-header-cell *matHeaderCellDef> Post </th>
+          <td mat-cell *matCellDef="let row"> {{row.posts}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="albums">
+          <th mat-header-cell *matHeaderCellDef> Albums </th>
+          <td mat-cell *matCellDef="let row"> {{row.albums}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="photos">
+          <th mat-header-cell *matHeaderCellDef> Photos </th>
+          <td mat-cell *matCellDef="let row"> {{row.photos}} </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>

@@ -5,7 +5,7 @@ import {
  } from '@fortawesome/free-solid-svg-icons';
 import { UserSportsService } from 'src/app/core/services/user-sports.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { User, PhotoModel } from 'src/app/core/models';
+import { User, PhotoModel, PostsModel } from 'src/app/core/models';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -19,7 +19,9 @@ export class ListComponent implements OnInit {
 
   public users: Array<User>;
   public photos: Array<PhotoModel>;
-  public displayedColumns: string[] = ['username', 'name', 'email', 'city'];
+  public posts: Array<PostsModel>;
+
+  public displayedColumns: string[] = ['username', 'name', 'email', 'city', 'albums', 'posts', 'photos'];
   public dataSource: MatTableDataSource<User> = new MatTableDataSource();
   public form: FormGroup;
 
@@ -28,8 +30,7 @@ export class ListComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.getUsers();
-    this.getPhotos();
+    this.getTableData();
 
     this.form = new FormGroup({
       name: new FormControl(''),
@@ -41,14 +42,12 @@ export class ListComponent implements OnInit {
     this.getByName(name);
   }
 
-  public async getUsers(): Promise<void> {
-   try {
-    this.users = await this.userService.getUsers();
-    this.dataSource.data = this.users;
-    console.log(this.users);
-   } catch (error) {
-    alert('Error fetching users');
-   }
+  public getTableData() {
+    this.userService.getTableData().subscribe((res: Array<User>) => {
+      this.users = res;
+      this.dataSource.data = this.users;
+      console.log(this.users)
+    });
   }
 
   public async getByName(name: string): Promise<void> {
@@ -60,17 +59,9 @@ export class ListComponent implements OnInit {
     }
   }
 
-  public async getPhotos(): Promise<void> {
-    try {
-      this.photos = await this.userService.getPhotos();
-      console.log(this.photos);
-    } catch (error) {
-      alert('Error fetching photos');
-    }
-  }
 
   public clearFilter(): void {
-    this.getUsers();
+    this.getTableData();
     this.form.get('name').setValue('');
   }
 
