@@ -21,7 +21,7 @@ export class ListComponent implements OnInit {
   public photos: Array<PhotoModel>;
   public posts: Array<PostsModel>;
 
-  public displayedColumns: string[] = ['username', 'name', 'email', 'city', 'daysOfWeek', 'albums', 'posts', 'photos'];
+  public displayedColumns: string[] = ['username', 'name', 'email', 'city', 'rideInGroup' , 'daysOfWeek', 'albums', 'posts', 'photos'];
   public dataSource: MatTableDataSource<User> = new MatTableDataSource();
   public form: FormGroup;
 

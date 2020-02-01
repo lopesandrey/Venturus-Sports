@@ -47,9 +47,14 @@
           <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.address.city}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="rideInGroup">
+          <th mat-header-cell *matHeaderCellDef> Ride in group <th>
+          <td mat-cell *matCellDef="let row"> {{row.rideInGroup}}</td>
+        </ng-container>
+
         <ng-container matColumnDef="daysOfWeek">
           <th mat-header-cell *matHeaderCellDef> Day of the week <th>
-          <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.daysOfWeek}}</td>
+          <td mat-cell *matCellDef="let row"> {{row.daysOfWeek}}</td>
         </ng-container>
 
         <ng-container matColumnDef="posts">

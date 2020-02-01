@@ -15,4 +15,5 @@ export class User {
   albums?: number;
   photos?: number;
   daysOfWeek?: string;
+  rideInGroup?: string;
 }

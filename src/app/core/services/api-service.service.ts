@@ -17,6 +17,11 @@ export class ApiService {
       .pipe(catchError(this.formatErrors));
   }
 
+  public getMock(path: string): Observable<any> {
+    return this.http.get<any>(`${environment.mockUrl}${path}`)
+      .pipe(catchError(this.formatErrors));
+  }
+
   public put(path: string, body: object = {}): Observable<any> {
     return this.http.put(`${environment.apiUrl}${path}`, JSON.stringify(body))
       .pipe(catchError(this.formatErrors));
