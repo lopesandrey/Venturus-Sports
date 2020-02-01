@@ -12,7 +12,7 @@
               <input matInput
                      type="text"
                      formControlName="name"
-                     (keyup.enter)="onSubmit()"
+                     (keyup) = "onSubmit()"
               />
               <mat-hint>
                 <a (click)="clearFilter()">Clear filter.</a>
@@ -47,14 +47,19 @@
           <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.address.city}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="daysOfWeek">
+          <th mat-header-cell *matHeaderCellDef> Day of the week <th>
+          <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.daysOfWeek}}</td>
+        </ng-container>
+
         <ng-container matColumnDef="posts">
           <th mat-header-cell *matHeaderCellDef> Post </th>
-          <td mat-cell *matCellDef="let row"> {{row.posts}} </td>
+          <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.posts}} </td>
         </ng-container>
 
         <ng-container matColumnDef="albums">
           <th mat-header-cell *matHeaderCellDef> Albums </th>
-          <td mat-cell *matCellDef="let row"> {{row.albums}} </td>
+          <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.albums}} </td>
         </ng-container>
 
         <ng-container matColumnDef="photos">

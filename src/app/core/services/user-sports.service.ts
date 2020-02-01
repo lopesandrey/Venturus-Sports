@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api-service.service';
 import { User } from '../models/user.model';
-import { PhotoModel, PostsModel, Album } from '../models';
-import { forkJoin } from 'rxjs';
+import { PhotoModel, PostsModel, Album, EnumSelector } from '../models';
+import { forkJoin, concat } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { daysWeekEnumeratorList, DaysWeekEnumerator } from '../enumerators';
 
 @Injectable()
 export class UserSportsService {
-  public basePath: 'users';
 
   constructor(
     private apiService: ApiService,
@@ -25,7 +25,7 @@ export class UserSportsService {
     return this.apiService.get(`photos`).toPromise();
   }
 
-  public getAlbums(): Promise<Array<PhotoModel>> {
+  public getAlbums(): Promise<Array<Album>> {
     return this.apiService.get(`albums`).toPromise();
   }
 
@@ -40,26 +40,89 @@ export class UserSportsService {
     const photos = this.getPhotos();
 
 
-    return forkJoin([users, posts, albums, photos]).pipe(map(result => {
-      const tableDataArray: User[] = [];
-      let tempTableData: User;
-      console.log(result)
-      result[0].forEach(user => {
-        tempTableData = {
+    return forkJoin([users, posts, albums, photos]).pipe(map(res => {
+      const data: Array<User> = new Array<User>();
+
+      res[0].forEach(user => {
+
+        const tempTableData: User = {
           id: user.id,
           name: user.name,
           username: user.username,
           email: user.email,
           address: user.address,
-          albums: this.countUserAlbums(user.id, result[2]),
-          posts: this.countUserPosts(user.id, result[1]),
-          photos: this.countUserPhotos(user.id, result[2], result[3])
+          daysOfWeek: this.verifyDays(),
+          albums: this.countUserAlbums(user.id, res[2]),
+          posts: this.countUserPosts(user.id, res[1]),
+          photos: this.countUserPhotos(user.id, res[2], res[3])
         };
 
-        tableDataArray.push(tempTableData);
+        data.push(tempTableData);
       });
-      return tableDataArray;
+      return data;
     }));
+  }
+
+  private getDays(): Array<EnumSelector> {
+    const days: typeof daysWeekEnumeratorList = daysWeekEnumeratorList;
+    const newDays: Array<EnumSelector> = new Array<EnumSelector>();
+    const num1: number = this.randomNumber();
+
+    for (let i = 0; i <= num1; i++) {
+      const num2: number = this.randomNumber();
+
+      days.filter(d => {
+        if (d.id === num2) {
+          const find = newDays.find(newDay => newDay === d);
+          if (!find) {
+            newDays.push(d);
+          }
+        }
+      });
+    }
+    console.log(newDays.sort((a, b) => a.id - b.id));
+
+    return newDays.sort((a, b) => a.id - b.id);
+  }
+
+  private verifyDays(): string {
+    const days: Array<EnumSelector> = this.getDays();
+    const daysEnum: typeof DaysWeekEnumerator = DaysWeekEnumerator;
+    let res: string;
+
+    if (days.length === 2) {
+      days.find(d => {
+        if ((d.id === daysEnum.SUN) || (d.id === daysEnum.SAT)) {
+          res = 'Weekends';
+          return res;
+        }
+      });
+    }
+
+    if (days.length <= 3) {
+      let concatDays = '';
+
+      days.forEach(day => {
+        concatDays = concatDays.concat(day.description + ', ');
+      });
+      res = concatDays;
+      return res;
+    }
+
+    if (days.length > 3) {
+      res = 'Week days';
+      return res;
+    }
+
+    if (days.length === 7) {
+      res = 'Every day';
+      return res;
+    }
+
+  }
+
+  private randomNumber(): number {
+    return Math.floor(Math.random() * 7) + 1;
   }
 
   private countUserAlbums(userId: number, albums: Album[]): number {
@@ -81,6 +144,3 @@ export class UserSportsService {
     return photoCounter;
   }
 }
-/* https://jsonplaceholder.typicode.com/photos,
-https://jsonplaceholder.typicode.com/albuns e
-https://jsonplaceholder.typicode.com/photos */

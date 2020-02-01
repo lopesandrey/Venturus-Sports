@@ -5,3 +5,5 @@ export * from './user.model';
 export * from './photo.model';
 export * from './posts.model';
 export * from './albums.model';
+export * from './daysOfWeek.mode';
+export  * from './enum-selector.model';

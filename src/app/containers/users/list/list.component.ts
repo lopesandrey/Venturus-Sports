@@ -21,7 +21,7 @@ export class ListComponent implements OnInit {
   public photos: Array<PhotoModel>;
   public posts: Array<PostsModel>;
 
-  public displayedColumns: string[] = ['username', 'name', 'email', 'city', 'albums', 'posts', 'photos'];
+  public displayedColumns: string[] = ['username', 'name', 'email', 'city', 'daysOfWeek', 'albums', 'posts', 'photos'];
   public dataSource: MatTableDataSource<User> = new MatTableDataSource();
   public form: FormGroup;
 
@@ -51,12 +51,9 @@ export class ListComponent implements OnInit {
   }
 
   public async getByName(name: string): Promise<void> {
-    try {
-      this.users = await this.userService.getByName(name);
-      this.dataSource.data = this.users;
-    } catch (error) {
-      alert('Error fetching users');
-    }
+    name = name.toLocaleLowerCase();
+    const user = this.users.filter(u => u.name.toLocaleLowerCase().indexOf(name) >= 0);
+    this.dataSource.data = user;
   }
 
 
