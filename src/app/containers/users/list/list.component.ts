@@ -10,7 +10,8 @@ import { User, PhotoModel, PostsModel } from 'src/app/core/models';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../../components/modal/delete/delete.component';
-import { TableService } from 'src/app/core/services';
+import { TableService, BreadcrumbService } from 'src/app/core/services';
+import { breadcrumb } from './breadcrumb';
 
 @Component({
   selector: 'app-list',
@@ -44,8 +45,13 @@ export class ListComponent implements OnInit {
   constructor(
     private userService: UserSportsService,
     private tableService: TableService,
+    private breadcrumbService: BreadcrumbService,
     public dialog: MatDialog,
   ) { }
+
+  public ngAfterViewInit(): void {
+    this.breadcrumbService.set(breadcrumb);
+  }
 
   public ngOnInit(): void {
     this.getTableData();

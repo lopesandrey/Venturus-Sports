@@ -7,6 +7,7 @@ import { MockInterceptor } from './interceptors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { TableService } from './services/table.service';
+import { BreadcrumbService } from './services';
 
 @NgModule({
   declarations: [],
@@ -19,6 +20,7 @@ import { TableService } from './services/table.service';
   providers: [
     UserSportsService,
     TableService,
+    BreadcrumbService,
     ApiService,
     {provide: HTTP_INTERCEPTORS, useClass: MockInterceptor, multi: true},
   ]

@@ -15,23 +15,19 @@ export class HeaderComponent implements OnInit {
     [
       {
         title: 'Registration',
-        route: 'users/new'
+        route: 'new'
       },
       {
         title: 'Friends List',
-        route: 'users/new'
       },
       {
         title: 'Saved Items',
-        route: 'users/new'
       },
       {
         title: 'User Preferences',
-        route: 'users/new'
       },
       {
         title: 'Log out',
-        route: 'users/new',
         isLast: true,
       },
     ];

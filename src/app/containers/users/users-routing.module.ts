@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: 'src/app/containers/users/list/list.module#ListModule',
   },
   {
-    path: 'users/new',
+    path: 'new',
     loadChildren: 'src/app/containers/users/create/create.module#CreateModule',
   }
 ];

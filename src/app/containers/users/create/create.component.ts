@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { TableService } from 'src/app/core/services';
+import { TableService, BreadcrumbService } from 'src/app/core/services';
 import { User } from 'src/app/core/models';
 import { rideInGroupEnumeratorList } from 'src/app/core/enumerators';
+import { breadcrumb } from './breadcrumb';
 
 @Component({
   selector: 'app-create',
@@ -16,7 +17,12 @@ export class CreateComponent implements OnInit {
 
   constructor(
     private tableService: TableService,
+    private breadcrumbService: BreadcrumbService,
   ) { }
+
+  public ngAfterViewInit(): void {
+    this.breadcrumbService.set(breadcrumb);
+  }
 
   ngOnInit() {
     this.form = new FormGroup({
