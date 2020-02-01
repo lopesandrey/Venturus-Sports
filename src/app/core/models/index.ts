@@ -8,3 +8,4 @@ export * from './albums.model';
 export * from './daysOfWeek.mode';
 export  * from './enum-selector.model';
 export * from './days-ride.model';
+export * from './dropdown-menu.model';

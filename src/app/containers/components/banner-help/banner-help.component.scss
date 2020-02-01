@@ -1,0 +1,29 @@
+@import '../../../scss/variables';
+
+.main {
+  margin-bottom: 30px;
+
+  &__title {
+    display: block;
+    font-size: 20pt;
+    color: $primary-color;
+    padding: 20px 0;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: row;
+
+    &__icon {
+      color: $primary-color;
+      font-size: 50pt;
+      margin-right: 20px;
+    }
+
+    &__text {
+      text-align: start;
+      width: 360px;
+      font-weight: 500;
+    }
+  }
+}

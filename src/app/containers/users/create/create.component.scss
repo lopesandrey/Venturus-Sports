@@ -17,6 +17,28 @@ hr {
 .create {
   margin: 50px 0;
 
+  &__header {
+    display: flex;
+    padding: 30px 0;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__title {
+      font-size: 20pt;
+      margin-top: 10px;
+    }
+
+    &__divider {
+      border-bottom: 3px solid gray;
+      display: flex;
+      width: 100%;
+      opacity: 0.1;
+      position: relative;
+      top: -16px;
+      margin: 0 15px;
+    }
+  }
+
   &__title {
     font-weight: bold;
     display: flex;

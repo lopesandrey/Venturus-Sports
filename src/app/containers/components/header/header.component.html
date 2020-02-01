@@ -11,12 +11,10 @@
         <fa-icon [icon]="faChevronDown"></fa-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="users/new">Registration</button>
-        <button mat-menu-item>Friends List</button>
-        <button mat-menu-item>Saved Items</button>
-        <button mat-menu-item>User Preferences</button>
-        <div class="dropdown-divider"></div>
-        <button mat-menu-item>Log out</button>
+        <div *ngFor="let dropdown of dropdowns">
+          <div *ngIf="dropdown.isLast" class="dropdown-divider"></div>
+          <button mat-menu-item [routerLink]="dropdown.route">{{dropdown.title}}</button>
+        </div>
       </mat-menu>
     </div>
   </nav>

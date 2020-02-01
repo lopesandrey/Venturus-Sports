@@ -45,7 +45,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { DeleteComponent } from '../containers/components/modal/delete/delete.component';
 import { DaysWeekPipe } from './pipes/days-week.pipe';
-import { DaysOfWeek } from '../core/models';
 
 const COMPONENTS: any = [
   DeleteComponent,
