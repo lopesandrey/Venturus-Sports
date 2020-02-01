@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { EnumSelector, DaysAndRideGroup } from '../models';
+import { EnumSelector, DaysAndRideGroup, DaysOfWeek } from '../models';
 import { daysWeekEnumeratorList, DaysWeekEnumerator, rideInGroupEnumeratorList } from '../enumerators';
 
 
@@ -56,12 +56,33 @@ export class MockInterceptor implements HttpInterceptor {
     return ride.description;
   }
 
-  public verifyDays(): string {
+  public verifyDays() {
     const days: Array<EnumSelector> = this.getDays();
     const daysEnum: typeof DaysWeekEnumerator = DaysWeekEnumerator;
-    let res: string;
 
-    if (days.length === 2) {
+    const sun = days.find(d => d.id === daysEnum.SUN);
+    const mon = days.find(d => d.id === daysEnum.MON);
+    const tue = days.find(d => d.id === daysEnum.TUE);
+    const wed = days.find(d => d.id === daysEnum.WED);
+    const thu = days.find(d => d.id === daysEnum.THU);
+    const fri = days.find(d => d.id === daysEnum.FRI);
+    const sat = days.find(d => d.id === daysEnum.SAT);
+
+    const daysOfWeek: DaysOfWeek = {
+      sun: sun ? true : false,
+      mon: mon ? true : false,
+      tue: tue ? true : false,
+      wed: wed ? true : false,
+      thu: thu ? true : false,
+      fri: fri ? true : false,
+      sat: sat ? true : false,
+    }
+
+    return daysOfWeek;
+
+
+
+    /* if (days.length === 2) {
       const sat = days.find(d => d.id === daysEnum.SAT);
       const sun = days.find(d => d.id === daysEnum.SUN);
 
@@ -90,7 +111,7 @@ export class MockInterceptor implements HttpInterceptor {
     if (days.length === 7) {
       res = 'Every day';
       return res;
-    }
+    } */
   }
 
   public assembleObj() {

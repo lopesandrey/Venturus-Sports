@@ -1,4 +1,6 @@
+import { DaysOfWeek } from './daysOfWeek.mode';
+
 export class DaysAndRideGroup {
-  days: string;
+  days: DaysOfWeek;
   rideInGroup: string;
 }

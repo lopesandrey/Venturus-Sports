@@ -71,15 +71,15 @@ export class UserSportsService {
     }));
   }
 
-  private albumsAmount(userId: number, albums: Album[]): number {
+  private albumsAmount(userId: number, albums: Array<Album>): number {
     return albums.filter(item => item.userId === userId).length;
   }
 
-  private postsAmount(userId: number, posts: PostsModel[]): number {
+  private postsAmount(userId: number, posts: Array<PostsModel>): number {
     return posts.filter(item => item.userId === userId).length;
   }
 
-  private userPhotoAmount(userId: number, albums: Album[], photos: PhotoModel[]): number {
+  private userPhotoAmount(userId: number, albums: Array<Album>, photos: Array<PhotoModel>): number {
     let count = 0;
     const userAlbuns = albums.filter(item => item.userId === userId);
 

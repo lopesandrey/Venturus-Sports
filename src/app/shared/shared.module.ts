@@ -43,6 +43,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
+import { DeleteComponent } from '../containers/components/modal/delete/delete.component';
+import { DaysWeekPipe } from './pipes/days-week.pipe';
+import { DaysOfWeek } from '../core/models';
+
+const COMPONENTS: any = [
+  DeleteComponent,
+];
 
 const BASE_MODULES: any = [
   CommonModule,
@@ -94,12 +101,20 @@ const BASE_MODULES: any = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ...COMPONENTS,
+    DaysWeekPipe
+  ],
   imports: [
     ...BASE_MODULES,
   ],
   exports: [
     ...BASE_MODULES,
+    ...COMPONENTS,
+    DaysWeekPipe,
   ],
+  entryComponents: [
+    ...COMPONENTS,
+  ]
 })
 export class SharedModule { }

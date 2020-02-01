@@ -54,6 +54,12 @@ button {
 
   &:hover {
     background-color: $light-background;
+
+    .list__table__icon-trash  {
+      opacity: 0.3;
+      transition: 0.2s;
+      cursor: pointer;
+    }
   }
 }
 

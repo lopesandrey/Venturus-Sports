@@ -1,0 +1,28 @@
+@import '../../../../scss/variables';
+
+
+.delete {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  &__icon-trash {
+    font-size: 30pt;
+    color: $primary-color;
+    margin: 20px 0;
+  }
+
+  &__text {
+    font-size: 12pt;
+    font-weight: 500;
+  }
+
+  &__btn {
+    width: 80px;
+    background-color: $primary-color;
+    display: block;
+    margin: 20px auto;
+    color: #ffffff;
+  }
+}

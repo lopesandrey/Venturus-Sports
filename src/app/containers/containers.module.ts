@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SharedModule } from '../shared/shared.module';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { DeleteComponent } from './components/modal/delete/delete.component';
 
 @NgModule({
   declarations: [ContainersComponent, HeaderComponent, BreadcrumbComponent, BannerComponent],

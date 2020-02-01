@@ -1,6 +1,7 @@
 import { Address } from './address.model';
 import { Company } from './company.model';
 import { EnumSelector } from './enum-selector.model';
+import { DaysOfWeek } from './daysOfWeek.mode';
 
 export class User {
   id: number;
@@ -14,6 +15,6 @@ export class User {
   posts?: number;
   albums?: number;
   photos?: number;
-  daysOfWeek?: string;
+  daysOfWeek?: DaysOfWeek;
   rideInGroup?: string;
 }
