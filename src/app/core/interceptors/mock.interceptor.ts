@@ -79,39 +79,6 @@ export class MockInterceptor implements HttpInterceptor {
     }
 
     return daysOfWeek;
-
-
-
-    /* if (days.length === 2) {
-      const sat = days.find(d => d.id === daysEnum.SAT);
-      const sun = days.find(d => d.id === daysEnum.SUN);
-
-      if (sat && sun) {
-        res = 'Weekends';
-        return res;
-      }
-
-    }
-
-    if (days.length <= 3) {
-      let concatDays = '';
-
-      days.forEach(day => {
-        concatDays = concatDays.concat(day.description + ' ');
-      });
-      res = concatDays;
-      return res;
-    }
-
-    if (days.length > 3) {
-      res = 'Week days';
-      return res;
-    }
-
-    if (days.length === 7) {
-      res = 'Every day';
-      return res;
-    } */
   }
 
   public assembleObj() {
