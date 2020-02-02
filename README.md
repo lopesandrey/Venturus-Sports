@@ -4,6 +4,10 @@ System developed for a Venturus test using the Angular 8 framework and external 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
+## Demo project
+
+https://lopesandrey.github.io/venturus-sports/
+
 ## Development local server 
 
 First run `npm install` to install.
