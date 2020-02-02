@@ -1,4 +1,4 @@
-# VenturusSports
+# Venturus Sports
 
 System developed for a Venturus test using the Angular 8 framework and external libraries.
 
