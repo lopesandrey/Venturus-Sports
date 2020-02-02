@@ -21,14 +21,14 @@ export class CreateComponent implements OnInit, AfterViewInit {
     private tableService: TableService,
     private breadcrumbService: BreadcrumbService,
     private snackBar: MatSnackBar,
-    private router:  Router,
+    private router: Router,
   ) { }
 
   public ngAfterViewInit(): void {
     this.breadcrumbService.set(breadcrumb);
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.form = new FormGroup({
       username: new FormControl('', Validators.required),
       name: new FormControl('', Validators.required),

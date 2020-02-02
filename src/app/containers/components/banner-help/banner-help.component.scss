@@ -8,6 +8,10 @@
     font-size: 20pt;
     color: $primary-color;
     padding: 20px 0;
+
+    @media (max-width: 550px) {
+    font-size: 15pt;
+    }
   }
 
   &__column {
@@ -18,12 +22,20 @@
       color: $primary-color;
       font-size: 50pt;
       margin-right: 20px;
+
+      @media (max-width: 550px) {
+        font-size: 30pt;
+      }
     }
 
     &__text {
       text-align: start;
       width: 360px;
       font-weight: 500;
+
+      @media (max-width: 550px) {
+        font-size: 10pt;
+      }
     }
   }
 }

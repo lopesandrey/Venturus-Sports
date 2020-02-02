@@ -18,8 +18,9 @@
 <hr />
   <form class="create" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row mt-3">
-      <div class="col">
+      <div class="col mt-4">
         <mat-form-field appearance="outline">
+
           <mat-label>Username</mat-label>
           <input matInput
                  type="text"
@@ -36,12 +37,15 @@
         <mat-form-field appearance="outline">
           <mat-label>E-mail</mat-label>
           <input matInput
-                 type="text"
+                 type="email"
                  formControlName="email"
           />
         </mat-form-field>
       </div>
       <div class="col">
+        <div class="create__hint">
+          <mat-hint>Optional</mat-hint>
+        </div>
         <mat-form-field appearance="outline">
           <mat-label>City</mat-label>
           <input matInput

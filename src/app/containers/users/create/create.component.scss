@@ -28,6 +28,10 @@ hr {
     &__title {
       font-size: 25pt;
       margin-top: 10px;
+
+      @media (max-width: 550px) {
+        font-size: 15pt;
+      }
     }
 
     &__divider {
@@ -54,6 +58,11 @@ hr {
   &__btn {
     margin: 0 10px 0;
   }
+
+  &__hint {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 .save {
@@ -64,4 +73,8 @@ hr {
 .discard {
   background-color: #dbdbdb;
   color: gray;
+}
+
+.hint {
+  opacity: 0;
 }

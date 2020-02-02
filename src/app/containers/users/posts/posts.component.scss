@@ -11,6 +11,10 @@
     &__title {
       font-size: 25pt;
       margin-top: 10px;
+
+      @media (max-width: 550px) {
+        font-size: 15pt;
+      }
     }
 
     &__divider {

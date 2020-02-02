@@ -25,6 +25,10 @@
     &__contrast {
       font-weight: bold;
       font-size: 18pt;
+
+      @media (max-width: 1024px) {
+        font-size: 14pt;
+      }
     }
   }
 }
