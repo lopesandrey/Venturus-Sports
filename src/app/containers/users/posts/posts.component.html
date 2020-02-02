@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="main__header">
+        <span class="main__header__title">Posts</span>
+        <span class="main__header__divider"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-sm-12" *ngFor="let post of posts">
+      <mat-card class="main__card">
+        <mat-card-header>
+          <fa-icon [icon]="faUser" mat-card-avatar class="main__card__image"></fa-icon>
+          <mat-card-title class="main__card__title">{{post.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="main__card__text">
+            {{post.body}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api-service.service';
 import { User } from '../models/user.model';
 import { PhotoModel, PostsModel, Album, EnumSelector, DaysAndRideGroup } from '../models';
-import { forkJoin, concat } from 'rxjs';
+import { forkJoin, concat, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { daysWeekEnumeratorList, DaysWeekEnumerator } from '../enumerators';
 
@@ -35,6 +35,10 @@ export class UserSportsService {
     return this.apiService.get(`posts`).toPromise();
   }
 
+  public getPostsByUser(id: number): Observable<Array<PostsModel>> {
+    return this.apiService.get(`posts?userId=${id}`);
+  }
+
   public getDays() {
     return this.apiService.getMock(`getdays`);
   }
@@ -44,7 +48,6 @@ export class UserSportsService {
     const posts = this.getPosts();
     const albums = this.getAlbums();
     const photos = this.getPhotos();
-
 
     return forkJoin([users, posts, albums, photos]).pipe(map(res => {
       const data: Array<User> = new Array<User>();

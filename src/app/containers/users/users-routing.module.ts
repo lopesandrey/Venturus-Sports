@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'new',
     loadChildren: 'src/app/containers/users/create/create.module#CreateModule',
+  },
+  {
+    path: 'posts/:id',
+    loadChildren: 'src/app/containers/users/posts/posts.module#PostsModule',
   }
 ];
 

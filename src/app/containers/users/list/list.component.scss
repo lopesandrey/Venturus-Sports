@@ -18,6 +18,10 @@ mat-hint a {
 
 .list {
 
+  &__table {
+    overflow: auto;
+  }
+
   &__btn-add {
     background-color: $primary-color;
     color: #ffffff;
@@ -32,6 +36,11 @@ mat-hint a {
     &__title {
       font-size: 25pt;
       margin-top: 10px;
+
+      @media (max-width: 550px) {
+        font-size: 13pt;
+        margin-top: 24px;
+      }
     }
 
     &__icon {
