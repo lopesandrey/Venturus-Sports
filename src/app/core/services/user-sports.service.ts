@@ -39,6 +39,10 @@ export class UserSportsService {
     return this.apiService.get(`posts?userId=${id}`);
   }
 
+  public getAlbumsByUser(id: number): Observable<Array<Album>> {
+    return this.apiService.get(`albums?userId=${id}`);
+  }
+
   public getDays() {
     return this.apiService.getMock(`getdays`);
   }

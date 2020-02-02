@@ -49,9 +49,10 @@ export class CreateComponent implements OnInit, AfterViewInit {
   public onSubmit() {
     const form = this.form.value;
     const users = this.tableService.users.getValue();
+    const newId = users[users.length - 1].id + 1;
 
     const user: User = {
-      id: users.length + 1,
+      id: newId,
       username: form.name,
       name: form.name,
       email: form.email,

@@ -14,10 +14,6 @@ export class HeaderComponent implements OnInit {
   public dropdowns: Array<DropdownMenu> =
     [
       {
-        title: 'Registration',
-        route: 'new'
-      },
-      {
         title: 'Friends List',
       },
       {

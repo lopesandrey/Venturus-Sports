@@ -33,6 +33,7 @@
   <div class="row mt-3 mb-3">
     <div class="col">
      <div class="list__table">
+      <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <ng-container matColumnDef="username">
@@ -74,7 +75,9 @@
 
         <ng-container matColumnDef="albums">
           <th mat-header-cell *matHeaderCellDef> Albums </th>
-          <td class="list__table__contrast" mat-cell *matCellDef="let row"> {{row.albums}} </td>
+          <td class="list__table__contrast" mat-cell *matCellDef="let row">
+            <a [routerLink]="['/albums/', row.id]">{{row.albums}}</a>
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="photos">

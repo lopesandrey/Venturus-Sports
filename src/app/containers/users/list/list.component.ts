@@ -22,12 +22,13 @@ export class ListComponent implements OnInit, AfterViewInit {
   public faCoffee = faCoffee;
   public faSearch = faSearch;
   public faTrashAlt = faTrashAlt;
+  public loading = false;
 
   public users: Array<User>;
   public photos: Array<PhotoModel>;
   public posts: Array<PostsModel>;
 
-  public displayedColumns: string[] =[
+  public displayedColumns: string[] = [
     'username',
     'name',
     'email',
@@ -43,7 +44,6 @@ export class ListComponent implements OnInit, AfterViewInit {
   public form: FormGroup;
 
   constructor(
-    private userService: UserSportsService,
     private tableService: TableService,
     private breadcrumbService: BreadcrumbService,
     public dialog: MatDialog,
@@ -67,10 +67,11 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   public getTableData() {
+    this.loading = true;
     this.tableService.getData().subscribe((res: Array<User>) => {
       this.users = res;
       this.dataSource.data = this.users;
-      console.log(this.users)
+      this.loading = false;
     });
   }
 
@@ -91,8 +92,6 @@ export class ListComponent implements OnInit, AfterViewInit {
         this.tableService.deleteUser(user);
       }
     });
-
-
   }
 
   public clearFilter(): void {

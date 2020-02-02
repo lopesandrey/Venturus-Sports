@@ -18,10 +18,6 @@ mat-hint a {
 
 .list {
 
-  &__table {
-    overflow: auto;
-  }
-
   &__btn-add {
     background-color: $primary-color;
     color: #ffffff;
@@ -63,6 +59,7 @@ mat-hint a {
   }
 
   &__table {
+    overflow: auto;
 
     &__contrast {
       font-weight: 500;

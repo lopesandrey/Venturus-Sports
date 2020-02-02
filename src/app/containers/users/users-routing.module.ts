@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'posts/:id',
     loadChildren: 'src/app/containers/users/posts/posts.module#PostsModule',
+  },
+  {
+    path: 'albums/:id',
+    loadChildren: 'src/app/containers/users/albums/albums.module#AlbumsModule',
   }
 ];
 

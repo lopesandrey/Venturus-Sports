@@ -1,19 +1,21 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { BreadcrumbService, UserSportsService } from 'src/app/core/services';
-import { breadcrumb } from './breadcrumb';
 import { ActivatedRoute } from '@angular/router';
-import { PostsModel } from 'src/app/core/models';
+import { breadcrumb } from './breadcrumb';
+import { Album } from 'src/app/core/models';
 import {
-  faUserAlt,
+  faListAlt,
 } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  selector: 'app-albums',
+  templateUrl: './albums.component.html',
+  styleUrls: ['./albums.component.scss']
 })
-export class PostsComponent implements OnInit, AfterViewInit {
-  public posts: Array<PostsModel> =  new Array<PostsModel>();
-  public faUser = faUserAlt;
+export class AlbumsComponent implements OnInit, AfterViewInit {
+
+  public albums: Array<Album> = new Array<Album>();
+  public faListAlt = faListAlt;
   public loading = false;
 
   constructor(
@@ -22,9 +24,9 @@ export class PostsComponent implements OnInit, AfterViewInit {
     private userService: UserSportsService,
   ) { }
 
-  public ngOnInit() {
+  ngOnInit() {
     this.route.params.subscribe((params: any) => {
-      this.getPosts(params.id);
+      this.getAlbums(params.id);
     });
   }
 
@@ -32,13 +34,11 @@ export class PostsComponent implements OnInit, AfterViewInit {
     this.breadcrumbService.set(breadcrumb);
   }
 
-  public getPosts(id: number) {
+  public getAlbums(id: number) {
     this.loading = true;
-
-    this.userService.getPostsByUser(id).subscribe(res => {
-      this.posts = res;
+    this.userService.getAlbumsByUser(id).subscribe(res => {
+      this.albums = res;
       this.loading = false;
     });
   }
-
 }
