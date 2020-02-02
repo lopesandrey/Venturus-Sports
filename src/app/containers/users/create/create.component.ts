@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TableService, BreadcrumbService } from 'src/app/core/services';
 import { User } from 'src/app/core/models';
 import { rideInGroupEnumeratorList } from 'src/app/core/enumerators';
 import { breadcrumb } from './breadcrumb';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class CreateComponent implements OnInit, AfterViewInit {
 
   public form: FormGroup;
   public rideinGroupEnum: typeof rideInGroupEnumeratorList = rideInGroupEnumeratorList;
@@ -18,6 +20,8 @@ export class CreateComponent implements OnInit {
   constructor(
     private tableService: TableService,
     private breadcrumbService: BreadcrumbService,
+    private snackBar: MatSnackBar,
+    private router:  Router,
   ) { }
 
   public ngAfterViewInit(): void {
@@ -39,6 +43,7 @@ export class CreateComponent implements OnInit {
       fri: new FormControl(false, Validators.required),
       sat: new FormControl(false, Validators.required),
     });
+
   }
 
   public onSubmit() {
@@ -69,6 +74,22 @@ export class CreateComponent implements OnInit {
     };
 
     this.tableService.createUser(user);
+    this.snackBar.open('This user was created', 'OK');
+    this.router.navigate(['/']);
+
+  }
+
+  public clearForm() {
+    this.form.reset({
+      sun: false,
+      mon: false,
+      tue: false,
+      wed: false,
+      thu: false,
+      fri: false,
+      sat: false,
+    });
+
   }
 
 }

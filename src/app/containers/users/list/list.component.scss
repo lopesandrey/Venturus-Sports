@@ -18,6 +18,11 @@ mat-hint a {
 
 .list {
 
+  &__btn-add {
+    background-color: $primary-color;
+    color: #ffffff;
+  }
+
   &__search {
     display: flex;
     padding: 30px 0;
@@ -25,7 +30,7 @@ mat-hint a {
     justify-content: space-between;
 
     &__title {
-      font-size: 20pt;
+      font-size: 25pt;
       margin-top: 10px;
     }
 

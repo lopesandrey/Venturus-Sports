@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {
   faCoffee,
   faSearch,
@@ -18,7 +18,7 @@ import { breadcrumb } from './breadcrumb';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, AfterViewInit {
   public faCoffee = faCoffee;
   public faSearch = faSearch;
   public faTrashAlt = faTrashAlt;
