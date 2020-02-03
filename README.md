@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Demo project
 
-https://lopesandrey.github.io/venturus-sports/
+[Demo](https://lopesandrey.github.io/venturus-sports/)
 
 ## Development local server 
 
