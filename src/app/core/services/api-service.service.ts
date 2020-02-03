@@ -47,21 +47,6 @@ export class ApiService {
       .pipe(catchError(this.formatErrors));
   }
 
-  /* public getMock(path: string, params: any = null): Observable<any> {
-    return this.http.get(`${environment.mockUrl}${path}`, { params })
-      .pipe(catchError(this.formatErrors));
-  }
-
-  public postMock(path: string, body: object = {}): Observable<any> {
-    return this.http.post(`${environment.mockUrl}${path}`, JSON.stringify(body))
-      .pipe(catchError(this.formatErrors));
-  }
-
-  public deleteMock(path: string, custom: object = null): Observable<any> {
-    return this.http.delete(`${environment.mockUrl}${path}`)
-      .pipe(catchError(this.formatErrors));
-  } */
-
   private formatErrors(error: any): any {
     return throwError(error.error);
   }

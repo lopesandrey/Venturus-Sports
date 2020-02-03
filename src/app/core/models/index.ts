@@ -9,3 +9,4 @@ export * from './daysOfWeek.mode';
 export  * from './enum-selector.model';
 export * from './days-ride.model';
 export * from './dropdown-menu.model';
+export * from './banner-info.model';
