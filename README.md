@@ -1,6 +1,6 @@
 # Venturus Sports
 
-System developed for a Venturus test using the Angular 8 framework and external libraries.
+System developed for a Venturus test using the Angular 9 framework and external libraries.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
