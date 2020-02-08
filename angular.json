@@ -151,5 +151,8 @@
       }
     }
   },
-  "defaultProject": "venturus-sports"
+  "defaultProject": "venturus-sports",
+  "cli": {
+    "analytics": false
+  }
 }
