@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: 'src/app/containers/users/users.module#UsersModule'
+        loadChildren: () => import('src/app/containers/users/users.module').then(m => m.UsersModule)
       },
     ],
   }
